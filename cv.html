@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Candice Lim</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #fafaf9;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --accent: #2c5f4f;
+            --accent-light: #e8f0ed;
+            --border: #e0dfd8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--primary-bg);
+            color: var(--text-primary);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(250, 250, 249, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1.5rem 0;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* CV Header */
+        .cv-header {
+            padding: 4rem 0 3rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cv-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .cv-contact {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .cv-contact a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .cv-contact a:hover {
+            color: var(--accent);
+        }
+
+        .download-note {
+            margin-top: 2rem;
+            padding: 1rem 1.5rem;
+            background: var(--accent-light);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* CV Sections */
+        .cv-section {
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .cv-section:last-of-type {
+            border-bottom: none;
+            padding-bottom: 6rem;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            color: var(--accent);
+        }
+
+        .summary-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .skill-item {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 1.5rem;
+        }
+
+        .skill-label {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .skill-content {
+            color: var(--text-secondary);
+        }
+
+        /* Experience Items */
+        .experience-item {
+            margin-bottom: 3rem;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            margin-bottom: 1rem;
+        }
+
+        .experience-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        .experience-meta {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .experience-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-content li {
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .sub-role {
+            margin-left: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .sub-role-title {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Education & Certifications */
+        .cert-item {
+            margin-bottom: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .cert-name {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cv-name {
+                font-size: 2.5rem;
+            }
+
+            .cv-contact {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .skill-item {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .experience-title {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Candice Lim</a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        <!-- CV Header -->
+        <div class="cv-header">
+            <div class="container">
+                <h1 class="cv-name">Candice Lim</h1>
+                <div class="cv-contact">
+                    <span>+65 9147 6791</span>
+                    <span>|</span>
+                    <span>candice.limym@gmail.com</span>
+                    <span>|</span>
+                    <a href="https://linkedin.com/in/candicelym" target="_blank" rel="noopener noreferrer">linkedin.com/in/candicelym</a>
+                    <span>|</span>
+                    <a href="https://tinyurl.com/candicelymportfolio" target="_blank" rel="noopener noreferrer">Portfolio</a>
+                </div>
+                <div class="download-note">
+                    💡 To add a download button: Upload your CV.docx to your GitHub repository and link to it
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Professional Summary -->
+            <section class="cv-section">
+                <h2 class="section-title">Professional Summary</h2>
+                <p class="summary-text">
+                    Product Manager with 9+ years across fintech and streaming platforms, specializing in mobile-first B2B2C products in regulated environments. Track record of driving measurable business outcomes: S$6M in FX revenue at Citi, +150% MAU growth for BBC Player through end-to-end UX-led product development. Currently expanding into AI-augmented product workflows and automation.
+                </p>
+            </section>
+
+            <!-- Skills -->
+            <section class="cv-section">
+                <h2 class="section-title">Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-label">Product Strategy & Execution</div>
+                        <div class="skill-content">End-to-end product lifecycle, roadmap prioritization, cross-functional leadership, stakeholder alignment, PRD development</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">Technical & Platform</div>
+                        <div class="skill-content">Mobile app development (iOS/Android), Auth & Entitlements (SSO/OAuth), CTV platforms, API integration, compliance frameworks</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">UX & Research</div>
+                        <div class="skill-content">User research, customer journey mapping, wireframing, accessibility (WCAG), Figma/Sketch</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">Data & Optimisation</div>
+                        <div class="skill-content">A/B testing, analytics instrumentation, SEO implementation, behavioral analysis, funnel optimization</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">AI & Automation</div>
+                        <div class="skill-content">ChatGPT, Claude, Perplexity (product research, workflow automation, prompt engineering)</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-label">Tools</div>
+                        <div class="skill-content">Jira, Confluence, Asana, Pendo | Languages: Korean</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Professional Experience -->
+            <section class="cv-section">
+                <h2 class="section-title">Professional Experience</h2>
+
+                <!-- Career Transition -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Career transition & upskilling</h3>
+                        <p class="experience-meta">Sept 2024 – Present</p>
+                    </div>
+                    <div class="experience-content">
+                        <ul>
+                            <li>Completed Product Discovery (Pendo) and Asana Workflow Specialist certifications</li>
+                            <li>Developing hands-on AI product skills: building automation agents, prompt engineering workflows, and AI-assisted product tooling</li>
+                            <li>Maintaining product muscle through daily practice with LLM-powered research, prototyping, and documentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Citibank -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">Citibank – Product Manager (Debit Cards)</h3>
+                        <p class="experience-meta">Dec 2022 – Sept 2024</p>
+                    </div>
+                    <div class="experience-content">
+                        <ul>
+                            <li>Drove S$6M in FX transaction revenue (three-year high) by refining product positioning, features, and user education for Citi Global Wallet multi-currency debit product</li>
+                            <li>Designed intent-based activation strategy within regulatory constraints (no direct promotions), leveraging in-app tooltips, onboarding flows, and social deeplinks to drive ~10% activation uplift</li>
+                            <li>Owned end-to-end product lifecycle for debit card and multi-currency wallet features, from user discovery and problem definition through launch and iteration in a regulated environment</li>
+                            <li>Collaborated with data and engineering teams to instrument behavioral tracking, interpret transactional signals, and iterate on funnel optimization while maintaining compliance requirements</li>
+                            <li>Strengthened compliance and risk posture by coordinating onshore/regional reporting and closing audit gaps, securing 100% clean MAS/internal audit results</li>
+                            <li>Conducted competitive analysis to propose actionable security features that reduced fraud incidents and improved product trust</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- BBC Studios -->
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <h3 class="experience-title">BBC Studios (2014–2022)</h3>
+                    </div>
+
+                    <!-- Product Manager, BBC Player -->
+                    <div class="sub-role">
+                        <div class="experience-header">
+                            <h4 class="sub-role-title">Product Manager, BBC Player</h4>
+                            <p class="experience-meta">Sept 2021 – Dec 2022</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Owned product discovery and delivery for core BBC Player user journeys, spanning onboarding, content discovery, playback, and retention across mobile, web, and CTV platforms</li>
+                                <li>Led UX-driven redesign that achieved 150% MAU growth in first 3 months post-launch, sustaining 10-15% month-over-month active user growth through continuous discovery and playback optimization</li>
+                                <li>Integrated entitlement systems (SSO, OAuth), built CTV app, and expanded platform reach to 2M+ viewers, achieving +40% MAU growth across new surfaces</li>
+                                <li>Maintained 20-30% monthly active user retention through continuous UX optimization and content discovery improvements across regional markets</li>
+                                <li>Coordinated UAT with business stakeholders, designing test scenarios and validating functionality against acceptance criteria</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Regional Operations Specialist -->
+                    <div class="sub-role">
+                        <div class="experience-header">
+                            <h4 class="sub-role-title">Regional Operations Specialist</h4>
+                            <p class="experience-meta">Mar 2017 – Sept 2021</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Launched and managed Movida CMS platform across Asia, improving metadata accuracy by 40% and automating 60% of operational workflows</li>
+                                <li>Supported UX redesign of BBC Player by contributing to journey mapping, metadata logic, and operational flows that directly impacted user discovery and content accuracy</li>
+                                <li>Conducted user interviews for BBC Earth global site across regions to test content discovery, storytelling formats, and navigation patterns, translating findings into clearer information architecture and page flows</li>
+                                <li>Partnered with telco clients (TMNet, StarHub) to optimize onboarding journeys; drove MVP adoption that simplified sign-in flows and reduced weekly customer complaints by approximately 50%</li>
+                                <li>Resolved cross-region satellite outage within 48 hours by coordinating with Sales and telco partners</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Production Coordinator -->
+                    <div class="sub-role">
+                        <div class="experience-header">
+                            <h4 class="sub-role-title">Production Coordinator (Acting Production Manager)</h4>
+                            <p class="experience-meta">Sept 2014 – Mar 2017</p>
+                        </div>
+                        <div class="experience-content">
+                            <ul>
+                                <li>Delivered 400+ creative assets for BBC First launch and BBC Earth rebrand within 8 months, on-time and on-budget</li>
+                                <li>Managed budgets and vendor contracts, safeguarding cost discipline while scaling output</li>
+                                <li>Strengthened workflows by overseeing scheduling, localisation, and QC for promotional assets</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Boards & Extras -->
+            <section class="cv-section">
+                <h2 class="section-title">Boards & Extras</h2>
+                <p class="summary-text">
+                    <strong>Next Generation Board (BBC Studios):</strong> Authored white paper on talent retention, later adopted across BBC public/commercial divisions
+                </p>
+            </section>
+
+            <!-- Education & Certifications -->
+            <section class="cv-section">
+                <h2 class="section-title">Education & Certifications</h2>
+                <div class="cert-item">
+                    <span class="cert-name">BA, Communications</span> (2011-2014), University at Buffalo, New York
+                </div>
+                <div class="cert-item">
+                    <span class="cert-name">WSET L3 Wines</span> (In Progress)
+                </div>
+                <div class="cert-item">
+                    <span class="cert-name">Asana Workflow Specialist</span> (2025)
+                </div>
+                <div class="cert-item">
+                    <span class="cert-name">Product Discovery, Pendo</span> (2025)
+                </div>
+                <div class="cert-item">
+                    <span class="cert-name">UX Research, Nielsen Norman Group</span> (2020)
+                </div>
+                <div class="cert-item">
+                    <span class="cert-name">Climbing I (Belay) & II (Lead Climbing) certifications</span> (2018-2020)
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
